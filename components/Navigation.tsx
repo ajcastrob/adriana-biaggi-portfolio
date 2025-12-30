@@ -20,23 +20,23 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-[100] bg-stone-900/95 backdrop-blur-md py-4 shadow-lg border-b border-stone-800">
-      <div className="container mx-auto px-6 flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full z-[100] bg-stone-900/95 backdrop-blur-md py-3 sm:py-4 shadow-lg border-b border-stone-800">
+      <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo */}
         <button 
           onClick={() => setView(ViewState.HOME)}
-          className="font-serif text-2xl tracking-widest uppercase hover:opacity-70 transition-opacity text-white"
+          className="font-serif text-lg sm:text-xl md:text-2xl tracking-widest uppercase hover:opacity-70 transition-opacity text-white"
         >
           {SITE_TITLE}
         </button>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-12">
+        <div className="hidden lg:flex space-x-8 xl:space-x-12">
           {navItems.map((item) => (
             <button
               key={item.label}
               onClick={() => setView(item.view)}
-              className={`text-sm tracking-[0.2em] uppercase transition-all duration-300 relative group ${
+              className={`text-xs xl:text-sm tracking-[0.2em] uppercase transition-all duration-300 relative group ${
                 currentView === item.view ? 'font-semibold text-white' : 'text-stone-400 font-light hover:text-white'
               }`}
             >
@@ -48,10 +48,10 @@ const Navigation: React.FC<NavigationProps> = ({ currentView, setView }) => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-white"
+          className="lg:hidden text-white p-2"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
         >
-          {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
